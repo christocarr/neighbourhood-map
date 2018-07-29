@@ -1,8 +1,8 @@
-#Neighbourhood Map
+# Neighbourhood Map
 
 This is project 8 and the final project in the Udacity Frontend Nanodegree.
 
-##Getting Started
+## Getting Started
 
 
 
