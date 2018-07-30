@@ -4,6 +4,10 @@ This is project 8 and the final project in the Udacity Frontend Nanodegree.
 
 ## Getting Started
 
+1. Download or clone the repo
+2. `npm install` to install any dependancies
+3. Run the app using `npm start`
+4. The app should run at: `localhost: 3000`
 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
