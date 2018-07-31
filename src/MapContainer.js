@@ -23,7 +23,7 @@ export class MapContainer extends Component {
             lat: 51.550503,
             lng: -0.304841
           }}
-          zoom={14}
+          zoom={16}
         />
       </div>
     )
