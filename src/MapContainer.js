@@ -10,6 +10,7 @@ export class MapContainer extends Component {
   }
 
   render() {
+
     if (!this.props.google) {
       return <div>Loading...</div>
     }
@@ -18,6 +19,10 @@ export class MapContainer extends Component {
       <div>
         <Map
           google={this.props.google}
+          initialCenter={{
+            lat: 51.550503,
+            lng: -0.304841
+          }}
           zoom={14}
         />
       </div>
