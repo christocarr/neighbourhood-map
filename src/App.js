@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import MapContainer from './MapContainer'
+import './App.css';
 
 class App extends Component {
   render() {
@@ -12,3 +13,4 @@ class App extends Component {
 }
 
 export default App
+

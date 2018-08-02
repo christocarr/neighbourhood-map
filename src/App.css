@@ -1,0 +1,14 @@
+.marker-list {
+  width: 1em;
+  height: auto;
+  font-size: 5em;
+  position: absolute;
+  left: 1em;
+  top: 40%;
+  margin: 0 0 0 0;
+  z-index: 1001;
+}
+
+.marker-list:hover {
+  cursor: pointer;
+}
