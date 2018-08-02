@@ -1,14 +1,23 @@
 .marker-list {
-  width: 1em;
+  position: relative;
+  float: left;
+  width: 6vw;
+  height: 100vh;
+  background-color: darkgrey;
+}
+
+.list-toggle {
+  width: 0.7em;
   height: auto;
   font-size: 5em;
   position: absolute;
-  left: 1em;
+  left: 7%;
   top: 40%;
   margin: 0 0 0 0;
   z-index: 1001;
+  color: white;
 }
 
-.marker-list:hover {
+.list-toggle:hover {
   cursor: pointer;
 }
