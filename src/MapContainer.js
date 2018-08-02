@@ -1,37 +1,38 @@
 import React, { Component } from 'react';
-import './App.css';
-import { Map, GoogleApiWrapper } from 'google-maps-react'
+import { withGoogleMap, GoogleMap } from 'react-google-maps'
+import MarkerListOpener from './MarkerListOpener'
 
 export class MapContainer extends Component {
-  state = {
-    showingInfoWindow: false,
-    activeMarker: {},
-    selectedPlace: {}
-  }
 
   render() {
 
-    if (!this.props.google) {
-      return <div>Loading...</div>
-    }
+    const Map = withGoogleMap(props => (
+      <GoogleMap
+        defaultCenter = {{
+          lat: 40.756795,
+          lng: -73.954298
+        }}
+        defaultZoom = { 13 }
+      >
+      </GoogleMap>
+    ))
 
     return (
       <div>
-        <Map
-          google={this.props.google}
-          initialCenter={{
-            lat: 51.550503,
-            lng: -0.304841
-          }}
-          zoom={17}
+        <Map 
+          containerElement= {
+            <div style={{ height: '100vh', width: '100vw', position: 'relative'  }} /> 
+          }
+          mapElement={
+            <div style={{ height: '100%' }} />
+          }
         />
+        <MarkerListOpener />
       </div>
     )
   }
 }
 
-export default GoogleApiWrapper({
-  apiKey: 'AIzaSyCIXjUR2aOOj9EGjnJVcG9pi3294fTp8yI'
-})(MapContainer)
+export default MapContainer
 
-//API key: AIzaSyCIXjUR2aOOj9EGjnJVcG9pi3294fTp8yI
+
