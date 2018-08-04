@@ -17,10 +17,10 @@ export class MapContainer extends Component {
     ))
 
     return (
-      <div>
+      <div className='map-container'>
         <Map 
           containerElement= {
-            <div style={{ height: '92vh', width: '90vw', float: 'right'  }} /> 
+            <div style={{ height: '86vh', width: '90vw' }} /> 
           }
           mapElement={
             <div style={{ height: '100%' }} />
