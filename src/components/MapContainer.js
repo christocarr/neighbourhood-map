@@ -20,7 +20,7 @@ export class MapContainer extends Component {
       <div>
         <Map 
           containerElement= {
-            <div style={{ height: '92vh', width: '94vw', float: 'right'  }} /> 
+            <div style={{ height: '92vh', width: '90vw', float: 'right'  }} /> 
           }
           mapElement={
             <div style={{ height: '100%' }} />
