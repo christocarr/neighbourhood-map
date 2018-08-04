@@ -25,3 +25,18 @@
 .toggle-icon:hover {
   cursor: pointer;
 }
+
+.footer {
+  width: 100vw;
+  height: 8vh;
+  background-color: lightslategrey;
+  position: fixed;
+  bottom: 0;
+}
+
+.credits {
+  width: 50%;
+  height: auto;
+  text-align: center;
+  margin: 1em auto 0 auto;
+}
