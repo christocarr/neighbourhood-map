@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Header from './Header'
 import MapContainer from './MapContainer'
 import MarkerList from './MarkerList'
+import Footer from './Footer'
 import './App.css';
 
 class App extends Component {
@@ -11,6 +12,7 @@ class App extends Component {
         <Header />
         <MapContainer />
         <MarkerList />
+        <Footer />
       </div>
     )
   }
