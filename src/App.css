@@ -1,3 +1,9 @@
+.header {
+  height: 10wh;
+  width: 100vw;
+  background-color: lightgrey;
+}
+
 .marker-list {
   position: relative;
   float: left;
@@ -6,18 +12,16 @@
   background-color: darkgrey;
 }
 
-.list-toggle {
-  width: 0.7em;
+.toggle-icon {
+  width: 2.5em;
   height: auto;
-  font-size: 5em;
   position: absolute;
-  left: 7%;
-  top: 40%;
+  top: 50%;
+  left: 11%;
   margin: 0 0 0 0;
   z-index: 1001;
-  color: white;
 }
 
-.list-toggle:hover {
+.toggle-icon:hover {
   cursor: pointer;
 }
