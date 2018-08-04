@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import Header from './Header'
-import MapContainer from './MapContainer'
-import MarkerList from './MarkerList'
-import Footer from './Footer'
+import Header from './components/Header'
+import MapContainer from './components/MapContainer'
+import MarkerList from './components/MarkerList'
+import Footer from './components/Footer'
 import './App.css';
 
 class App extends Component {
