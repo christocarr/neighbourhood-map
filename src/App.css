@@ -5,11 +5,20 @@
 }
 
 .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   position: absolute;
   top: 0;
   height: 8vh;
   width: 100vw;
   background-color: #778899;
+}
+
+.heading {
+  text-align: center;
+  margin: 0 auto 0 auto;
+  font-size: 1.5em;
 }
 
 .map-container {
@@ -58,4 +67,32 @@
   width: 90%;
   font-size: 0.5em;
   text-align: center;
+}
+
+/*-------------------------------------
+            Media Queries
+-------------------------------------*/
+
+@media screen and (min-width: 731px) {
+
+  .heading {
+    font-size: 1.3em;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .heading {
+    font-size: 2.5em;
+  }
+
+  .toggle-icon {
+    width: 3em;
+  }
+
+  .credits {
+    font-size: 1em;
+  }
+
 }
