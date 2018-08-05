@@ -1,3 +1,11 @@
+.temp-div {
+  position: absolute;
+  z-index: 1008;
+  width: 100px;
+  height: 100px;
+  background-color: #778899;
+}
+
 .app {
   height: 100vh;
   width: 100vw;
@@ -13,6 +21,7 @@
   height: 8vh;
   width: 100vw;
   background-color: #778899;
+  z-index: 1004;
 }
 
 .heading {
@@ -27,7 +36,21 @@
   right: 0;
 }
 
-.marker-list {
+.marker-list-open {
+  position: absolute;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  width: 25vw;
+  height: 100vh;
+  background-color: darkgrey;
+  z-index: 1003;
+}
+
+.marker-list-closed {
+  position: absolute;
   float: left;
   display: flex;
   flex-direction: column;
@@ -45,6 +68,7 @@
   position: absolute;
   z-index: 1001;
   transform: translateX(-50%);
+  right: 1em;
 }
 
 .toggle-icon:hover {
@@ -52,6 +76,7 @@
 }
 
 .footer {
+  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,6 +86,7 @@
   background-color: lightslategrey;
   position: fixed;
   bottom: 0;
+  z-index: 1004;
 }
 
 .credits {

@@ -6,12 +6,28 @@ import Footer from './components/Footer'
 import './App.css';
 
 class App extends Component {
+
+  state = {
+    markerListOpen: false
+  }
+
+  handleToggle = () => {
+    if (this.state.markerListOpen) {
+      this.setState({markerListOpen: false})
+    } else {
+      this.setState({markerListOpen: true})
+    }
+  }
+
   render() {
     return (
       <div className='app'>
         <Header />
         <MapContainer />
-        <MarkerList />
+        <MarkerList 
+          markerListOpen={this.state.markerListOpen}
+          toggleList={this.handleToggle}
+        />
         <Footer />
       </div>
     )
