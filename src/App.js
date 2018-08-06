@@ -9,16 +9,20 @@ class App extends Component {
 
   state = {
     markerListOpen: false,
-    listLocations: null,
+    venues: null,
+
   }
 
+  //get six parking locations in a 2km radius from foursquare 
   componentDidMount() {
     fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=parking&limit=6&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
       .then(res => res.json())
-      .then(data => this.setState({ listLocations: data }))
+      .then(data => this.setState({ venues: data.response.venues }))
   }
 
-  handleToggle = () => {
+  //function to open and close marker list
+  handleToggle = (e) => {
+    // e.preventDefault
     if (this.state.markerListOpen) {
       this.setState({markerListOpen: false})
     } else {
@@ -27,12 +31,13 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.state.venues)
     return (
       <div className='app'>
         <Header />
         <MapContainer defaultLocation={this.state.defaultLocation}/>
         <MarkerList 
+          venues={this.state.venues}
           markerListOpen={this.state.markerListOpen}
           toggleList={this.handleToggle}
         />
