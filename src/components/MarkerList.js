@@ -12,13 +12,13 @@ class MarkerList extends Component {
         {listIsOpen ? (
           <div className='marker-list-open'>
             <div className='list-toggle-close'>
-              <img className='toggle-icon' src={require('../images/chevron-sign-to-left.svg')} alt='list closer' onClick={toggleList} />
+              <img className='toggle-icon' src={require('../images/menu.svg')} alt='list closer' onClick={toggleList} />
             </div>
           </div> 
         ) : (
           <div className='marker-list-closed'>
             <div className='list-toggle-open'>
-              <img className='toggle-icon' src={require('../images/chevron-sign-to-right.svg')} alt='list opener' 
+              <img className='toggle-icon' src={require('../images/menu.svg')} alt='list opener' 
               onClick={toggleList} />
             </div>
           </div>
