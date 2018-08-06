@@ -6,13 +6,24 @@ class MarkerList extends Component {
 
     const listIsOpen = this.props.markerListOpen
     const toggleList = this.props.toggleList
+    const venues = this.props.venues
 
     return (
       <div>
         {listIsOpen ? (
           <div className='marker-list-open'>
-            <div className='list-toggle-close'>
-              <img className='toggle-icon' src={require('../images/menu.svg')} alt='list closer' onClick={toggleList} />
+            <input type='text' className='list-filter'/>
+            <div className='marker-list-container'>
+              <ul className='venue-list'>
+                {venues.map(venue => {
+                  return (
+                    <li key={venue.id}>{venue.name}</li>
+                  )  
+                })}
+              </ul>
+              <div className='list-toggle-close'>
+                <img className='toggle-icon' src={require('../images/menu.svg')} alt='list closer' onClick={toggleList} />
+              </div>
             </div>
           </div> 
         ) : (
