@@ -1,0 +1,173 @@
+.temp-div {
+  position: absolute;
+  z-index: 1008;
+  width: 100px;
+  height: 100px;
+  background-color: #778899;
+}
+
+.app {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  height: 8vh;
+  width: 100vw;
+  background-color: #778899;
+  z-index: 1004;
+}
+
+.heading {
+  text-align: center;
+  margin: 0 auto 0 auto;
+  font-size: 1.5em;
+}
+
+.map-container {
+  position: absolute;
+  top: 8vh;
+  right: 0;
+}
+
+.list-filter {
+  width: 90%;
+  height: 1.5em;
+  margin: 4.5em 0 0 0.4em;
+}
+
+.venue-list {
+  width: 75%;
+  list-style: none;
+  margin: 1em 0 0 0;
+  padding: 0 0.5em 0 0.5em;
+  font-size: 0.7em;
+}
+
+.venue-list li {
+  margin: 0.7em 0 0 0;
+  padding: 0 0 0.7em 0;
+  border-bottom: 0.5px solid;
+}
+
+.venue-list li:last-child {
+  border: none;
+}
+
+.venue-list li:hover {
+  cursor: pointer;
+}
+
+.marker-list-open {
+  position: absolute;
+  width: 45vw;
+  height: 100vh;
+  background-color: darkgrey;
+  z-index: 1003;
+}
+
+.marker-list-closed {
+  position: absolute;
+  width: 10vw;
+  height: 100vh;
+  background-color: darkgrey;
+}
+
+.toggle-icon {
+  color: lightslategray;
+  width: 1.4em;
+  height: auto;
+  position: absolute;
+  top: 50%;
+  right: 0em;
+  margin: 0 0 0 1em;
+}
+
+.toggle-icon:hover {
+  cursor: pointer;
+}
+
+.footer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 6vh;
+  background-color: lightslategrey;
+  position: fixed;
+  bottom: 0;
+  z-index: 1004;
+}
+
+.credits {
+  width: 90%;
+  font-size: 0.5em;
+  text-align: center;
+}
+
+.credits div {
+  margin: 0.4em 0 0 0;
+}
+
+/*-------------------------------------
+            Media Queries
+-------------------------------------*/
+
+@media screen and (min-width: 411px) {
+
+  .list-filter {
+    margin: 4.8em 0 0 0.5em;
+  }
+  
+  .venue-list {
+    width: 70%;
+    padding: 0 0.6em 0 0.8em;
+    font-size: 0.8em;
+  }
+ 
+  .marker-list-open {
+    width: 40vw;
+  }
+  
+  .marker-list-closed {
+    width: vw;
+  }
+  
+  .toggle-icon {
+    width: 1.6em;
+  }
+  
+
+}
+
+@media screen and (min-width: 731px) {
+
+  .heading {
+    font-size: 1.3em;
+  }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+  .heading {
+    font-size: 2.5em;
+  }
+
+  .toggle-icon {
+    width: 3em;
+  }
+
+  .credits {
+    font-size: 1em;
+  }
+
+}
