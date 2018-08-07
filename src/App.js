@@ -8,7 +8,7 @@ import './App.css';
 class App extends Component {
 
   state = {
-    markerListOpen: false,
+    listIsOpen: false,
     venues: [],
   }
 
@@ -19,13 +19,17 @@ class App extends Component {
       .then(data => this.setState({ venues: data.response.venues }))
   }
 
+  //handler for markerClick
+  handleMarkerClick = (venueId) => {
+    console.log('marker clicked has venue ID:', venueId)
+  }
+
   //function to open and close marker list
   handleToggle = (e) => {
-    // e.preventDefault
-    if (this.state.markerListOpen) {
-      this.setState({markerListOpen: false})
+    if (this.state.listIsOpen) {
+      this.setState({listIsOpen: false})
     } else {
-      this.setState({markerListOpen: true})
+      this.setState({listIsOpen: true})
     }
   }
 
@@ -35,11 +39,13 @@ class App extends Component {
         <Header />
         <MapContainer 
           venues={this.state.venues}  
+          markerClick={this.handleMarkerClick}
         />
         <MarkerList 
           venues={this.state.venues}
-          markerListOpen={this.state.markerListOpen}
+          listIsOpen={this.state.listIsOpen}
           toggleList={this.handleToggle}
+          markerListItemClick={this.handleMarkerClick}
         />
         <Footer />
       </div>

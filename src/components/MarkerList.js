@@ -4,10 +4,11 @@ class MarkerList extends Component {
 
   render() {
 
-    const listIsOpen = this.props.markerListOpen
-    const toggleList = this.props.toggleList
-    const venues = this.props.venues
-
+    const { listIsOpen,
+            toggleList,
+            venues,
+            markerListItemClick } = this.props   
+    
     return (
       <div>
         {listIsOpen ? (
@@ -17,7 +18,10 @@ class MarkerList extends Component {
               <ul className='venue-list'>
                 {venues.map(venue => {
                   return (
-                    <li key={venue.id}>{venue.name}</li>
+                    <li 
+                      key={venue.id} 
+                      onClick={markerListItemClick(venue.id)}
+                    >{venue.name}</li>
                   )  
                 })}
               </ul>
