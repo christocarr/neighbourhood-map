@@ -1,10 +1,36 @@
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap } from 'react-google-maps'
+import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
 
 export class MapContainer extends Component {
 
+    // state = {
+    //   locations: []
+    // }
+
   render() {
+
+    const { venues } = this.props
     
+    let venuesHasValue = false
+    let markers = []
+    //check whether venues array is valid
+    if(venues !== undefined && venues.length > 0 && venues!== null) {
+      venuesHasValue = true
+    }
+    //if venues array is not empty then loop through and return only //data that is needed
+    if (venuesHasValue) {
+      let marker = {}
+      venues.map(venue => {
+         marker = {
+            lat: venue.location.lat,
+            lng: venue.location.lng,
+            title: venue.name,
+            venuId: venue.id
+        }
+        markers.push(marker)
+      })
+    }
+  
     const Map = withGoogleMap(props => (
       <GoogleMap
         defaultCenter = {{
@@ -13,6 +39,12 @@ export class MapContainer extends Component {
         }}
         defaultZoom = { 13 }
       >
+      {/* loop through markers array and return a marker to the map */}
+      {markers.map((marker, index) => (
+        <Marker key={index}
+          position= {{lat: marker.lat, lng: marker.lng}}
+        />
+      ))}
       </GoogleMap>
     ))
 

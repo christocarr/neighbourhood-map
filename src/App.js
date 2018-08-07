@@ -9,8 +9,7 @@ class App extends Component {
 
   state = {
     markerListOpen: false,
-    venues: null,
-
+    venues: [],
   }
 
   //get six parking locations in a 2km radius from foursquare 
@@ -31,11 +30,12 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.venues)
     return (
       <div className='app'>
         <Header />
-        <MapContainer defaultLocation={this.state.defaultLocation}/>
+        <MapContainer 
+          venues={this.state.venues}  
+        />
         <MarkerList 
           venues={this.state.venues}
           markerListOpen={this.state.markerListOpen}
