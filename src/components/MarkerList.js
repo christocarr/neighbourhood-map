@@ -20,7 +20,7 @@ class MarkerList extends Component {
                   return (
                     <li 
                       key={venue.id} 
-                      onClick={markerListItemClick(venue.id)}
+                      onClick={() => markerListItemClick(venue.id)}
                     >{venue.name}</li>
                   )  
                 })}

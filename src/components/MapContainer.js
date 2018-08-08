@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
-import { withGoogleMap, GoogleMap, Marker } from 'react-google-maps'
+import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 
 export class MapContainer extends Component {
 
   render() {
 
-    const { venues, markerClick } = this.props
-
+    const { venues, markerClick, infoWindowIsOpen, zoom } = this.props
     let venuesHasValue = false
     let markers = []
     //check whether venues array is valid
@@ -39,8 +38,9 @@ export class MapContainer extends Component {
       {markers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
-          onClick={markerClick(marker.venueId)}
-        />
+          onClick={(e) => markerClick(e, {lat: marker.lat, lng: marker.lng}, {index} )}
+        >
+        </Marker>
       ))}
       </GoogleMap>
     ))
