@@ -10,18 +10,30 @@ class App extends Component {
   state = {
     listIsOpen: false,
     venues: [],
+    clickedMarkerVenueId: null,
+    infoWindowIsOpen: false,
+    zoom: 17,
   }
 
   //get six parking locations in a 2km radius from foursquare 
   componentDidMount() {
-    fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=parking&limit=6&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
+    fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=burgers,pizza&limit=15&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
       .then(res => res.json())
       .then(data => this.setState({ venues: data.response.venues }))
+      .catch(error => console.log(error))
   }
 
-  //handler for markerClick
-  handleMarkerClick = (venueId) => {
-    console.log('marker clicked has venue ID:', venueId)
+  //handler for markerClick and list item click
+  handleMarkerClick = (event, latlng, index) => {
+    //animate marker when list item is clicked 
+    
+    console.log(event, latlng, index)
+
+    //highligh list item when marker is clicked
+
+    //open InfoWindow
+    this.setState({ infoWindowIsOpen: true })
+    
   }
 
   //function to open and close marker list
@@ -40,6 +52,8 @@ class App extends Component {
         <MapContainer 
           venues={this.state.venues}  
           markerClick={this.handleMarkerClick}
+          infoWindowIsOpen={this.state.infoWindowIsOpen}
+          zoom={this.state.zoom}
         />
         <MarkerList 
           venues={this.state.venues}
