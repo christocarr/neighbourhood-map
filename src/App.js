@@ -11,7 +11,6 @@ class App extends Component {
     listIsOpen: false,
     venues: [],
     clickedMarkerVenueId: null,
-    infoWindowIsOpen: false,
     zoom: 17,
   }
 
@@ -21,19 +20,6 @@ class App extends Component {
       .then(res => res.json())
       .then(data => this.setState({ venues: data.response.venues }))
       .catch(error => console.log(error))
-  }
-
-  //handler for markerClick and list item click
-  handleMarkerClick = (event, latlng, index) => {
-    //animate marker when list item is clicked 
-    
-    console.log(event, latlng, index)
-
-    //highligh list item when marker is clicked
-
-    //open InfoWindow
-    this.setState({ infoWindowIsOpen: true })
-    
   }
 
   //function to open and close marker list

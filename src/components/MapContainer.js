@@ -3,9 +3,13 @@ import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 
 export class MapContainer extends Component {
 
+  state = {
+    isOpen: false
+  }
+
   render() {
 
-    const { venues, markerClick, infoWindowIsOpen, zoom } = this.props
+    const { venues } = this.props
     let venuesHasValue = false
     let markers = []
     //check whether venues array is valid
@@ -25,6 +29,11 @@ export class MapContainer extends Component {
         markers.push(marker)
       })
     }
+
+    //infoWindow handler
+    const handleInfoWindowClick = (e) => {
+      this.setState({ isOpen: !this.state.isOpen })
+    }
   
     const Map = withGoogleMap(props => (
       <GoogleMap
@@ -32,14 +41,18 @@ export class MapContainer extends Component {
           lat: 51.5055,
           lng: -0.0754
         }}
-        defaultZoom = { 13 }
+        defaultZoom = {13}
       >
       {/* loop through markers array and return a marker to the map */}
       {markers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
-          onClick={(e) => markerClick(e, {lat: marker.lat, lng: marker.lng}, {index} )}
+          onClick={console.log('marker clicked')}
         >
+        {this.state.isOpen && (
+          <InfoWindow>
+            <h2>Infowindow</h2>
+          </InfoWindow>)}
         </Marker>
       ))}
       </GoogleMap>
