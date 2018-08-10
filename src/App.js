@@ -37,15 +37,12 @@ class App extends Component {
         <Header />
         <MapContainer 
           venues={this.state.venues}  
-          markerClick={this.handleMarkerClick}
-          infoWindowIsOpen={this.state.infoWindowIsOpen}
           zoom={this.state.zoom}
         />
         <MarkerList 
           venues={this.state.venues}
           listIsOpen={this.state.listIsOpen}
           toggleList={this.handleToggle}
-          markerListItemClick={this.handleMarkerClick}
         />
         <Footer />
       </div>

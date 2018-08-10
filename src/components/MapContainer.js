@@ -7,6 +7,13 @@ export class MapContainer extends Component {
     isOpen: false
   }
 
+  //infoWindow handler
+  handleMarkerClick = (venueId) =>  {
+    this.setState({ isOpen: !this.state.isOpen })
+    console.log(venueId)
+  }
+  
+
   render() {
 
     const { venues } = this.props
@@ -30,11 +37,6 @@ export class MapContainer extends Component {
       })
     }
 
-    //infoWindow handler
-    const handleInfoWindowClick = (e) => {
-      this.setState({ isOpen: !this.state.isOpen })
-    }
-  
     const Map = withGoogleMap(props => (
       <GoogleMap
         defaultCenter = {{
@@ -47,11 +49,11 @@ export class MapContainer extends Component {
       {markers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
-          onClick={console.log('marker clicked')}
+          onClick={this.handleMarkerClick}
         >
         {this.state.isOpen && (
           <InfoWindow>
-            <h2>Infowindow</h2>
+            <h2>{marker.title}</h2>
           </InfoWindow>)}
         </Marker>
       ))}
