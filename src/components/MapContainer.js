@@ -1,10 +1,10 @@
+
 import React, { Component } from 'react';
 import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 
 export class MapContainer extends Component {
 
   render() {
-
     const { venues, handleMarkerClick, clickedMarkerVenueId } = this.props
     let venuesHasValue = false
     let markers = []
@@ -40,6 +40,7 @@ export class MapContainer extends Component {
       {markers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
+          animation={clickedMarkerVenueId === marker.venueId ? window.google.maps.Animation.BOUNCE : null}
           onClick={() => handleMarkerClick(marker.venueId)}
         >
         {/* open infowindow if clicked marker is equal to marker id  */}
