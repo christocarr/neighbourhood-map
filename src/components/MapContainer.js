@@ -20,7 +20,9 @@ export class MapContainer extends Component {
             lat: venue.location.lat,
             lng: venue.location.lng,
             title: venue.name,
-            venueId: venue.id
+            venueId: venue.id,
+            streetNumber: venue.location.formattedAddress[0],
+            postCode: venue.location.formattedAddress[3],
         }
         markers.push(marker)
       })
@@ -40,9 +42,13 @@ export class MapContainer extends Component {
           position= {{lat: marker.lat, lng: marker.lng}}
           onClick={() => handleMarkerClick(marker.venueId)}
         >
+        {/* open infowindow if clicked marker is equal to marker id  */}
         {clickedMarkerVenueId === marker.venueId && (
-          <InfoWindow>
-            <h2>{marker.title}</h2>
+          <InfoWindow className='infowindow'>
+            <div>
+              <h3>{marker.title}</h3>
+              <p>{`${marker.streetNumber}, ${marker.postCode} `}</p>
+            </div>
           </InfoWindow>)}
         </Marker>
       ))}
