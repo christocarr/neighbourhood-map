@@ -31,6 +31,11 @@ class App extends Component {
     }
   }
 
+   //infoWindow handler
+   handleMarkerClick = (venueId) =>  {
+    this.setState({ clickedMarkerVenueId: venueId })
+  }
+
   render() {
     return (
       <div className='app'>
@@ -38,11 +43,15 @@ class App extends Component {
         <MapContainer 
           venues={this.state.venues}  
           zoom={this.state.zoom}
+          handleMarkerClick={this.handleMarkerClick}
+          clickedMarkerVenueId={this.state.clickedMarkerVenueId}
         />
         <MarkerList 
           venues={this.state.venues}
           listIsOpen={this.state.listIsOpen}
           toggleList={this.handleToggle}
+          handleListItemClick={this.handleMarkerClick}
+          clickedMarkerVenueId={this.state.clickedMarkerVenueId}
         />
         <Footer />
       </div>

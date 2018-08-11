@@ -7,7 +7,8 @@ class MarkerList extends Component {
     const { listIsOpen,
             toggleList,
             venues,
-            markerListItemClick } = this.props   
+            handleListItemClick,
+          } = this.props   
     
     return (
       <div>
@@ -20,7 +21,7 @@ class MarkerList extends Component {
                   return (
                     <li 
                       key={venue.id} 
-                      onClick={() => markerListItemClick(venue.id)}
+                      onClick={() => handleListItemClick(venue.id)}
                     >{venue.name}</li>
                   )  
                 })}

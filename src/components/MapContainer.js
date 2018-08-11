@@ -3,20 +3,9 @@ import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 
 export class MapContainer extends Component {
 
-  state = {
-    isOpen: false
-  }
-
-  //infoWindow handler
-  handleMarkerClick = (venueId) =>  {
-    this.setState({ isOpen: !this.state.isOpen })
-    console.log(venueId)
-  }
-  
-
   render() {
 
-    const { venues } = this.props
+    const { venues, handleMarkerClick, clickedMarkerVenueId } = this.props
     let venuesHasValue = false
     let markers = []
     //check whether venues array is valid
@@ -49,9 +38,9 @@ export class MapContainer extends Component {
       {markers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
-          onClick={this.handleMarkerClick}
+          onClick={() => handleMarkerClick(marker.venueId)}
         >
-        {this.state.isOpen && (
+        {clickedMarkerVenueId === marker.venueId && (
           <InfoWindow>
             <h2>{marker.title}</h2>
           </InfoWindow>)}
