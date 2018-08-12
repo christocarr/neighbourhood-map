@@ -11,6 +11,7 @@ export class MapContainer extends Component {
       clickedMarkerVenueId,
       defaultCenter,
       defaultZoom,
+      stopMarkerAnimation,
     } = this.props
 
     let venuesHasValue = false
@@ -37,6 +38,7 @@ export class MapContainer extends Component {
 
     const Map = withGoogleMap(props => (
       <GoogleMap
+        onClick={() => stopMarkerAnimation()}
         defaultCenter = {defaultCenter}
         defaultZoom = {defaultZoom}
       >
@@ -49,7 +51,10 @@ export class MapContainer extends Component {
         >
         {/* open infowindow if clicked marker is equal to marker id  */}
         {clickedMarkerVenueId === marker.venueId && (
-          <InfoWindow className='infowindow'>
+          <InfoWindow 
+            className='infowindow'
+            onCloseClick={() => stopMarkerAnimation()}
+          >
             <div>
               <h3>{marker.title}</h3>
               <p>{`${marker.streetNumber}, ${marker.postCode} `}</p>

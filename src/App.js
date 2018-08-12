@@ -17,6 +17,7 @@ class App extends Component {
     venues: [],
     clickedMarkerVenueId: null,
     zoom: 14,
+    markerIsActive: false,
   }
 
   //get six parking locations in a 2km radius from foursquare 
@@ -27,10 +28,10 @@ class App extends Component {
       .catch(error => console.log(error))
   }
 
-  
+
 
   //function to open and close marker list
-  handleToggle = (e) => {
+  handleToggle = () => {
     if (this.state.listIsOpen) {
       this.setState({listIsOpen: false})
     } else {
@@ -40,7 +41,6 @@ class App extends Component {
 
    //infoWindow handler
    handleMarkerClick = (venueId, marker) =>  {
-
     this.setState({ 
       clickedMarkerVenueId: venueId,
       defaultCenter: {
@@ -49,6 +49,18 @@ class App extends Component {
       },
       defaultZoom: this.state.zoom,
      })
+  }
+
+  //stop marker animation
+  stopMarkerAnimation = () => {
+    this.setState({ 
+      clickedMarkerVenueId: -1,
+      defaultCenter: {
+        lat: 51.5055,
+        lng: -0.0754
+      } ,
+      defaultZoom: 13,
+    })
   }
 
   render() {
@@ -62,6 +74,7 @@ class App extends Component {
           zoom={this.state.zoom}
           handleMarkerClick={this.handleMarkerClick}
           clickedMarkerVenueId={this.state.clickedMarkerVenueId}
+          stopMarkerAnimation={this.stopMarkerAnimation}
         />
         <MarkerList 
           venues={this.state.venues}
