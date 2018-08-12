@@ -5,7 +5,14 @@ import { withGoogleMap, GoogleMap, Marker, InfoWindow } from 'react-google-maps'
 export class MapContainer extends Component {
 
   render() {
-    const { venues, handleMarkerClick, clickedMarkerVenueId } = this.props
+    const { 
+      venues, 
+      handleMarkerClick, 
+      clickedMarkerVenueId,
+      defaultCenter,
+      defaultZoom,
+    } = this.props
+
     let venuesHasValue = false
     let markers = []
     //check whether venues array is valid
@@ -30,18 +37,15 @@ export class MapContainer extends Component {
 
     const Map = withGoogleMap(props => (
       <GoogleMap
-        defaultCenter = {{
-          lat: 51.5055,
-          lng: -0.0754
-        }}
-        defaultZoom = {13}
+        defaultCenter = {defaultCenter}
+        defaultZoom = {defaultZoom}
       >
       {/* loop through markers array and return a marker to the map */}
       {markers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
           animation={clickedMarkerVenueId === marker.venueId ? window.google.maps.Animation.BOUNCE : null}
-          onClick={() => handleMarkerClick(marker.venueId)}
+          onClick={() => handleMarkerClick(marker.venueId, marker)}
         >
         {/* open infowindow if clicked marker is equal to marker id  */}
         {clickedMarkerVenueId === marker.venueId && (

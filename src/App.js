@@ -8,10 +8,15 @@ import './App.css';
 class App extends Component {
 
   state = {
+    defaultCenter: {
+      lat: 51.5055,
+      lng: -0.0754
+    } ,
+    defaultZoom: 13,
     listIsOpen: false,
     venues: [],
     clickedMarkerVenueId: null,
-    zoom: 17,
+    zoom: 14,
   }
 
   //get six parking locations in a 2km radius from foursquare 
@@ -21,6 +26,8 @@ class App extends Component {
       .then(data => this.setState({ venues: data.response.venues }))
       .catch(error => console.log(error))
   }
+
+  
 
   //function to open and close marker list
   handleToggle = (e) => {
@@ -32,15 +39,25 @@ class App extends Component {
   }
 
    //infoWindow handler
-   handleMarkerClick = (venueId) =>  {
-    this.setState({ clickedMarkerVenueId: venueId })
+   handleMarkerClick = (venueId, marker) =>  {
+
+    this.setState({ 
+      clickedMarkerVenueId: venueId,
+      defaultCenter: {
+        lat: marker.lat,
+        lng: marker.lng
+      },
+      defaultZoom: this.state.zoom,
+     })
   }
 
   render() {
     return (
       <div className='app'>
         <Header />
-        <MapContainer 
+        <MapContainer
+          defaultCenter={this.state.defaultCenter}
+          defaultZoom={this.state.defaultZoom}
           venues={this.state.venues}  
           zoom={this.state.zoom}
           handleMarkerClick={this.handleMarkerClick}

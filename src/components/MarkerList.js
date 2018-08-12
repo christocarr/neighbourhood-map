@@ -8,21 +8,50 @@ class MarkerList extends Component {
             toggleList,
             venues,
             handleListItemClick,
-          } = this.props   
+          } = this.props
+      
+    let venuesHasValue = false
+    let markers = []
+    //check whether venues array is valid
+    if(venues !== undefined && venues.length > 0 && venues!== null) {
+      venuesHasValue = true
+    }
+    //if venues array is not empty then loop through and return only //data that is needed
+    if (venuesHasValue) {
+      let marker = {}
+      venues.map(venue => {
+          marker = {
+            lat: venue.location.lat,
+            lng: venue.location.lng,
+            title: venue.name,
+            venueId: venue.id,
+            streetNumber: venue.location.formattedAddress[0],
+            postCode: venue.location.formattedAddress[3],
+        }
+        markers.push(marker)
+      })
+    }      
     
     return (
       <div>
         {listIsOpen ? (
           <div className='marker-list-open'>
-            <input type='text' className='list-filter'/>
+            <label htmlFor='search'>Search</label>
+            <input 
+              id='search'
+              type='text' 
+              aria-required='true'
+              className='list-filter'
+            />
             <div className='marker-list-container'>
               <ul className='venue-list'>
-                {venues.map(venue => {
+                {markers.map((marker, index) => {
                   return (
                     <li 
-                      key={venue.id} 
-                      onClick={() => handleListItemClick(venue.id)}
-                    >{venue.name}</li>
+                      tabIndex='0'
+                      key={index} 
+                      onClick={() => handleListItemClick(marker.venueId, marker)}
+                    >{marker.title}</li>
                   )  
                 })}
               </ul>
