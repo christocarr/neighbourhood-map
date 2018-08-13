@@ -1,6 +1,17 @@
 import React, { Component } from 'react'
+import escapeRegExp from 'escape-string-regexp'
+import sortBy from 'sort-by'
 
 class MarkerList extends Component {
+
+  state = {
+    query: ''
+  }
+
+  //input onChange handler
+  updateQuery = (query) => {
+    this.setState({ query: query.trim() })
+  }
 
   render() {
 
@@ -40,8 +51,11 @@ class MarkerList extends Component {
             <input 
               id='search'
               type='text' 
+              placeholder='search for burger or pizza'
               aria-required='true'
               className='list-filter'
+              value={this.state.query}
+              onChange={(e) => this.updateQuery(e.target.value)}
             />
             <div className='marker-list-container'>
               <ul className='venue-list'>
@@ -50,6 +64,7 @@ class MarkerList extends Component {
                     <li 
                       tabIndex='0'
                       key={index} 
+                      placeholder={'search for burger or pizza'}
                       onClick={() => handleListItemClick(marker.venueId, marker)}
                     >{marker.title}</li>
                   )  
