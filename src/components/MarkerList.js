@@ -41,7 +41,18 @@ class MarkerList extends Component {
         }
         markers.push(marker)
       })
-    }      
+    }
+    
+    let showingMarkers 
+    if (this.state.query) {
+      const match = new RegExp(escapeRegExp(this.state.query), 'i')
+      showingMarkers = markers.filter((marker) => match.test(marker.title))
+    } else {
+      showingMarkers = markers
+    }
+
+    //sort list alphabetically
+    showingMarkers.sort(sortBy('title'))
     
     return (
       <div>
@@ -59,7 +70,7 @@ class MarkerList extends Component {
             />
             <div className='marker-list-container'>
               <ul className='venue-list'>
-                {markers.map((marker, index) => {
+                {showingMarkers.map((marker, index) => {
                   return (
                     <li 
                       tabIndex='0'

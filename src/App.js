@@ -17,18 +17,20 @@ class App extends Component {
     venues: [],
     clickedMarkerVenueId: null,
     zoom: 14,
-    markerIsActive: false,
+    query: '',
   }
 
   //get six parking locations in a 2km radius from foursquare 
   componentDidMount() {
-    fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=burgers,pizza&limit=15&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
+    fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=burgers,pizza&limit=17&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
       .then(res => res.json())
       .then(data => this.setState({ venues: data.response.venues }))
-      .catch(error => console.log(error))
+      .catch((error) => {
+        alert(`There has been an error data from the Foursquare API. 
+        Please try again!
+        error:`, error)
+      })
   }
-
-
 
   //function to open and close marker list
   handleToggle = () => {
@@ -37,6 +39,17 @@ class App extends Component {
     } else {
       this.setState({listIsOpen: true})
     }
+  }
+
+  //handle text search to find particular cuisine in list
+  handleInputSearch = (e) => {
+    // const searchedCuisine = this.state.venues.categories.shortName
+    const cuisines = this.state.cuisines
+    this.setState({ query: e.target.value })
+    const matchedSearch = cuisines
+      .filter(cuisine => cuisine === '' || cuisine.includes(this.state.query))
+    console.log(this.state.query)
+    console.log(matchedSearch)
   }
 
    //infoWindow handler
@@ -82,6 +95,8 @@ class App extends Component {
           toggleList={this.handleToggle}
           handleListItemClick={this.handleMarkerClick}
           clickedMarkerVenueId={this.state.clickedMarkerVenueId}
+          userInput={this.state.query}
+          handleInputSearch={this.handleInputSearch}
         />
         <Footer />
       </div>
