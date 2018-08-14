@@ -16,6 +16,7 @@ class App extends Component {
     listIsOpen: false,
     venues: [],
     markers: [],
+    filteredMarkers: [],
     clickedMarkerVenueId: null,
     zoom: 14,
     query: '',
@@ -45,6 +46,7 @@ class App extends Component {
           markers.push(marker)
         })
         this.setState({ markers })
+        this.setState({ filteredMarkers: markers })
       })
   }
 
@@ -55,6 +57,10 @@ class App extends Component {
     } else {
       this.setState({listIsOpen: true})
     }
+  }
+
+  handleMarkerFilter = (showingMarkers) => {
+    this.setState({ filteredMarkers: showingMarkers })
   }
 
    //infoWindow handler
@@ -88,7 +94,8 @@ class App extends Component {
         <MapContainer
           defaultCenter={this.state.defaultCenter}
           defaultZoom={this.state.defaultZoom}
-          markers={this.state.markers}  
+          markers={this.state.markers}
+          filteredMarkers={this.state.filteredMarkers}  
           zoom={this.state.zoom}
           handleMarkerClick={this.handleMarkerClick}
           clickedMarkerVenueId={this.state.clickedMarkerVenueId}
@@ -102,6 +109,7 @@ class App extends Component {
           clickedMarkerVenueId={this.state.clickedMarkerVenueId}
           userInput={this.state.query}
           handleInputSearch={this.handleInputSearch}
+          handleMarkerFilter={this.handleMarkerFilter}
         />
         <Footer />
       </div>

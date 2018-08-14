@@ -19,6 +19,7 @@ class MarkerList extends Component {
             toggleList,
             markers,
             handleListItemClick,
+            handleMarkerFilter
           } = this.props
       
     // let venuesHasValue = false
@@ -66,7 +67,10 @@ class MarkerList extends Component {
               aria-required='true'
               className='list-filter'
               value={this.state.query}
-              onChange={(e) => this.updateQuery(e.target.value)}
+              onChange={(e) => {
+                this.updateQuery(e.target.value)
+                handleMarkerFilter(showingMarkers)
+              }}
             />
             <div className='marker-list-container'>
               <ul className='venue-list'>

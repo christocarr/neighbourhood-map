@@ -6,7 +6,7 @@ export class MapContainer extends Component {
 
   render() {
     const {
-      markers, 
+      filteredMarkers, 
       handleMarkerClick, 
       clickedMarkerVenueId,
       defaultCenter,
@@ -43,7 +43,7 @@ export class MapContainer extends Component {
         defaultZoom = {defaultZoom}
       >
       {/* loop through markers array and return a marker to the map */}
-      {markers.map((marker, index) => (
+      {filteredMarkers.map((marker, index) => (
         <Marker key={index}
           position= {{lat: marker.lat, lng: marker.lng}}
           animation={clickedMarkerVenueId === marker.venueId ? window.google.maps.Animation.BOUNCE : null}
