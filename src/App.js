@@ -12,7 +12,7 @@ class App extends Component {
       lat: 51.5055,
       lng: -0.0754
     } ,
-    defaultZoom: 13,
+    defaultZoom: 12,
     listIsOpen: false,
     venues: [],
     clickedMarkerVenueId: null,
@@ -22,7 +22,7 @@ class App extends Component {
 
   //get six parking locations in a 2km radius from foursquare 
   componentDidMount() {
-    fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=burgers,pizza&limit=17&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
+    fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=burgers,pizza&limit=15&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
       .then(res => res.json())
       .then(data => this.setState({ venues: data.response.venues }))
       .catch((error) => {
