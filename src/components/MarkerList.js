@@ -69,7 +69,7 @@ class MarkerList extends Component {
               value={this.state.query}
               onChange={(e) => {
                 this.updateQuery(e.target.value)
-                handleMarkerFilter(showingMarkers)
+                handleMarkerFilter(e.target.value, showingMarkers)
               }}
             />
             <div className='marker-list-container'>

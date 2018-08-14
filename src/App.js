@@ -59,8 +59,12 @@ class App extends Component {
     }
   }
 
-  handleMarkerFilter = (showingMarkers) => {
+  handleMarkerFilter = (input, showingMarkers) => {
     this.setState({ filteredMarkers: showingMarkers })
+    //if input field is empty set filtered markers to the original markers
+    if (input === '') {
+      this.setState({ filteredMarkers: this.state.markers})
+    }
   }
 
    //infoWindow handler
