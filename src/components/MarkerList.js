@@ -63,7 +63,7 @@ class MarkerList extends Component {
             <input 
               id='search'
               type='text' 
-              placeholder='search for burger or pizza'
+              placeholder='search for restuarant'
               aria-required='true'
               className='list-filter'
               value={this.state.query}
@@ -78,8 +78,7 @@ class MarkerList extends Component {
                   return (
                     <li 
                       tabIndex='0'
-                      key={index} 
-                      placeholder={'search for burger or pizza'}
+                      key={index}
                       onClick={() => handleListItemClick(marker.venueId, marker)}
                     >{marker.title}</li>
                   )  
