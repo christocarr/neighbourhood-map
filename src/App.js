@@ -15,6 +15,7 @@ class App extends Component {
     defaultZoom: 12,
     listIsOpen: false,
     venues: [],
+    markers: [],
     clickedMarkerVenueId: null,
     zoom: 14,
     query: '',
@@ -29,6 +30,21 @@ class App extends Component {
         alert(`There has been an error data from the Foursquare API. 
         Please try again!
         error:`, error)
+      }).then(() => {
+        let markers = []
+        let marker = {}
+        this.state.venues.map(venue => {
+          marker = {
+            lat: venue.location.lat,
+            lng: venue.location.lng,
+            title: venue.name,
+            venueId: venue.id,
+            streetNumber: venue.location.formattedAddress[0],
+            postCode: venue.location.formattedAddress[3],
+          }
+          markers.push(marker)
+        })
+        this.setState({ markers })
       })
   }
 
@@ -39,17 +55,6 @@ class App extends Component {
     } else {
       this.setState({listIsOpen: true})
     }
-  }
-
-  //handle text search to find particular cuisine in list
-  handleInputSearch = (e) => {
-    // const searchedCuisine = this.state.venues.categories.shortName
-    const cuisines = this.state.cuisines
-    this.setState({ query: e.target.value })
-    const matchedSearch = cuisines
-      .filter(cuisine => cuisine === '' || cuisine.includes(this.state.query))
-    console.log(this.state.query)
-    console.log(matchedSearch)
   }
 
    //infoWindow handler
@@ -83,14 +88,14 @@ class App extends Component {
         <MapContainer
           defaultCenter={this.state.defaultCenter}
           defaultZoom={this.state.defaultZoom}
-          venues={this.state.venues}  
+          markers={this.state.markers}  
           zoom={this.state.zoom}
           handleMarkerClick={this.handleMarkerClick}
           clickedMarkerVenueId={this.state.clickedMarkerVenueId}
           stopMarkerAnimation={this.stopMarkerAnimation}
         />
         <MarkerList 
-          venues={this.state.venues}
+          markers={this.state.markers}
           listIsOpen={this.state.listIsOpen}
           toggleList={this.handleToggle}
           handleListItemClick={this.handleMarkerClick}

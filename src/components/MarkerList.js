@@ -17,31 +17,31 @@ class MarkerList extends Component {
 
     const { listIsOpen,
             toggleList,
-            venues,
+            markers,
             handleListItemClick,
           } = this.props
       
-    let venuesHasValue = false
-    let markers = []
+    // let venuesHasValue = false
+    // let markers = []
     //check whether venues array is valid
-    if(venues !== undefined && venues.length > 0 && venues!== null) {
-      venuesHasValue = true
-    }
+    // if(venues !== undefined && venues.length > 0 && venues!== null) {
+    //   venuesHasValue = true
+    // }
     //if venues array is not empty then loop through and return only //data that is needed
-    if (venuesHasValue) {
-      let marker = {}
-      venues.map(venue => {
-          marker = {
-            lat: venue.location.lat,
-            lng: venue.location.lng,
-            title: venue.name,
-            venueId: venue.id,
-            streetNumber: venue.location.formattedAddress[0],
-            postCode: venue.location.formattedAddress[3],
-        }
-        markers.push(marker)
-      })
-    }
+    // if (venuesHasValue) {
+    //   let marker = {}
+    //   venues.map(venue => {
+    //       marker = {
+    //         lat: venue.location.lat,
+    //         lng: venue.location.lng,
+    //         title: venue.name,
+    //         venueId: venue.id,
+    //         streetNumber: venue.location.formattedAddress[0],
+    //         postCode: venue.location.formattedAddress[3],
+    //     }
+    //     markers.push(marker)
+    //   })
+    // }
     
     let showingMarkers 
     if (this.state.query) {
