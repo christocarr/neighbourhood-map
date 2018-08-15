@@ -27,10 +27,10 @@ class App extends Component {
     fetch('https://api.foursquare.com/v2/venues/search?ll=51.5055,-0.0754&query=burgers,pizza&limit=15&radius=2000&client_id=5MFR2FIONG3CCN5IXQBUE3HFBKEECHZZ0Q1XNZVPZQEZMZDQ&client_secret=XVR2PAUVWZSPQY5RY0HZV54ZMBBXM2CWG4RKCGGQUT0JC0OU&v=20181001')
       .then(res => res.json())
       .then(data => this.setState({ venues: data.response.venues }))
-      .catch((error) => {
+      .catch(error => {
         alert(`There has been an error data from the Foursquare API. 
-        Please try again!
-        error:`, error)
+        Please refresh your browser and try again!
+        error: ${error}`)
       }).then(() => {
         let markers = []
         let marker = {}
