@@ -19,6 +19,7 @@ class MarkerList extends Component {
             toggleList,
             markers,
             handleListItemClick,
+            handleKeyPress,
             handleMarkerFilter
           } = this.props
       
@@ -80,6 +81,7 @@ class MarkerList extends Component {
                       tabIndex='0'
                       key={index}
                       onClick={() => handleListItemClick(marker.venueId, marker)}
+                      onKeyPress={(e) => handleKeyPress(e, marker.venueId, marker)}
                     >{marker.title}</li>
                   )  
                 })}

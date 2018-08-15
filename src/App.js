@@ -79,6 +79,15 @@ class App extends Component {
      })
   }
 
+  //when user uses Enter key instead of mouse button
+  handleKeyPress = (e, venueId, marker) => {
+    console.log(e.key)
+    if (e.key === 'Enter') {
+      console.log(e)
+      this.handleMarkerClick(venueId, marker)
+    }
+  }
+
   //stop marker animation
   stopMarkerAnimation = () => {
     this.setState({ 
@@ -110,6 +119,7 @@ class App extends Component {
           listIsOpen={this.state.listIsOpen}
           toggleList={this.handleToggle}
           handleListItemClick={this.handleMarkerClick}
+          handleKeyPress={this.handleKeyPress}
           clickedMarkerVenueId={this.state.clickedMarkerVenueId}
           userInput={this.state.query}
           handleInputSearch={this.handleInputSearch}
