@@ -101,9 +101,10 @@ class App extends Component {
 
   render() {
     return (
-      <div className='app'>
+      <div className='app' role='main'>
         <Header />
         <MapContainer
+          tabIndex='0'
           defaultCenter={this.state.defaultCenter}
           defaultZoom={this.state.defaultZoom}
           markers={this.state.markers}

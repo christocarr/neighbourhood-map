@@ -13,28 +13,6 @@ export class MapContainer extends Component {
       defaultZoom,
       stopMarkerAnimation,
     } = this.props
-    
-    // let venuesHasValue = false
-    // let markers = []
-    // //check whether venues array is valid
-    // if(venues !== undefined && venues.length > 0 && venues!== null) {
-    //   venuesHasValue = true
-    // }
-    // //if venues array is not empty then loop through and return only //data that is needed
-    // if (venuesHasValue) {
-    //   let marker = {}
-    //   venues.map(venue => {
-    //      marker = {
-    //         lat: venue.location.lat,
-    //         lng: venue.location.lng,
-    //         title: venue.name,
-    //         venueId: venue.id,
-    //         streetNumber: venue.location.formattedAddress[0],
-    //         postCode: venue.location.formattedAddress[3],
-    //     }
-    //     markers.push(marker)
-    //   })
-    // }
 
     const Map = withGoogleMap(props => (
       <GoogleMap
@@ -52,6 +30,7 @@ export class MapContainer extends Component {
         {/* open infowindow if clicked marker is equal to marker id  */}
         {clickedMarkerVenueId === marker.venueId && (
           <InfoWindow 
+            aria-label={`More details about ${marker.title}`}
             className='infowindow'
             onCloseClick={() => stopMarkerAnimation()}
           >
@@ -66,13 +45,13 @@ export class MapContainer extends Component {
     ))
 
     return (
-      <div className='map-container'>
+      <div className='map-container' tabIndex='0'>
         <Map 
           containerElement= {
             <div style={{ height: '86vh', width: '90vw' }} /> 
           }
           mapElement={
-            <div style={{ height: '100%' }} />
+            <div style={{ height: '100%' }} tabIndex='0'  />
           }
         />
       </div>

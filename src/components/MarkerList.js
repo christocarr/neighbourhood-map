@@ -62,10 +62,11 @@ class MarkerList extends Component {
           <div className='marker-list-open'>
             <label htmlFor='search'>Search</label>
             <input 
+              role='textbox'
+              aria-label='search for restuarants in this area'
               id='search'
               type='text' 
               placeholder='search for restuarant'
-              aria-required='true'
               className='list-filter'
               value={this.state.query}
               onChange={(e) => {
@@ -74,10 +75,14 @@ class MarkerList extends Component {
               }}
             />
             <div className='marker-list-container'>
-              <ul className='venue-list'>
+              <ul className='venue-list' 
+                role='menu'
+                aria-label='List of pizza and burger resuarants'>
                 {showingMarkers.map((marker, index) => {
                   return (
                     <li 
+                      role='listitem'
+                      aria-label={marker.title}
                       tabIndex='0'
                       key={index}
                       onClick={() => handleListItemClick(marker.venueId, marker)}
@@ -87,7 +92,8 @@ class MarkerList extends Component {
                 })}
               </ul>
               <div className='list-toggle-close'>
-                <img className='toggle-icon' src={require('../images/menu.svg')} alt='list closer' onClick={toggleList} />
+                <img className='toggle-icon' src={require('../images/menu.svg')} alt='list closer' onClick={toggleList} 
+                aria-label='Toggle to close the list of pizza and burger restuarants'/>
               </div>
             </div>
           </div> 
@@ -95,6 +101,7 @@ class MarkerList extends Component {
           <div className='marker-list-closed'>
             <div className='list-toggle-open'>
               <img className='toggle-icon' src={require('../images/menu.svg')} alt='list opener' 
+              aria-label='Toggle to open a list of pizza and burger restuarants'
               onClick={toggleList} />
             </div>
           </div>
