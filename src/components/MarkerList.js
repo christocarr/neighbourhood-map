@@ -61,8 +61,7 @@ class MarkerList extends Component {
         {listIsOpen ? (
           <div className='marker-list-open'>
             <label htmlFor='search'>Search</label>
-            <input 
-              role='textbox'
+            <input
               aria-label='search for restuarants in this area'
               id='search'
               type='text' 
@@ -81,7 +80,6 @@ class MarkerList extends Component {
                 {showingMarkers.map((marker, index) => {
                   return (
                     <li 
-                      role='listitem'
                       aria-label={marker.title}
                       tabIndex='0'
                       key={index}
