@@ -35,7 +35,7 @@ class App extends Component {
         let markers = []
         let marker = {}
         this.state.venues.map(venue => {
-          marker = {
+        marker = {
             lat: venue.location.lat,
             lng: venue.location.lng,
             title: venue.name,
@@ -44,6 +44,7 @@ class App extends Component {
             postCode: venue.location.formattedAddress[3],
           }
           markers.push(marker)
+          return markers
         })
         this.setState({ markers })
         this.setState({ filteredMarkers: markers })
@@ -81,9 +82,7 @@ class App extends Component {
 
   //when user uses Enter key instead of mouse button
   handleKeyPress = (e, venueId, marker) => {
-    console.log(e.key)
     if (e.key === 'Enter') {
-      console.log(e)
       this.handleMarkerClick(venueId, marker)
     }
   }
