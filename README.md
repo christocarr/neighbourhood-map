@@ -8,7 +8,7 @@ This is project 8 and the final project in the Udacity Frontend Nanodegree.
 2. `npm install` to install any dependancies
 3. Run the app using `npm start`
 4. The app should run at: `localhost: 3000`
-5. Please run `npm build` to allow for the production build which will create the service worker
+5. Please run `npm run build` to allow for the production build which will create the service worker
 
 ## Credits
 
