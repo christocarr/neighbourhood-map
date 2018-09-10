@@ -122,10 +122,9 @@
 /*-------------------------------------
             Media Queries
 -------------------------------------*/
-
-@media screen and (min-width: 411px) {
-  .map-container {
-    top: 8vh;
+@media screen and (min-height: 750px) {
+  .marker-list-open {
+    top: 1.3em;
   }
 }
 
