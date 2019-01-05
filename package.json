@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "escape-string-regexp": "^1.0.5",
+    "gh-pages": "^2.0.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-google-maps": "^9.4.5",
