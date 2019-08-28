@@ -1,14 +1,16 @@
 {
-  "main.css": "/neighbourhood-map/static/css/main.c9d2a9af.chunk.css",
-  "main.js": "/neighbourhood-map/static/js/main.ab212493.chunk.js",
-  "main.js.map": "/neighbourhood-map/static/js/main.ab212493.chunk.js.map",
-  "static/js/1.ef7a01c4.chunk.js": "/neighbourhood-map/static/js/1.ef7a01c4.chunk.js",
-  "static/js/1.ef7a01c4.chunk.js.map": "/neighbourhood-map/static/js/1.ef7a01c4.chunk.js.map",
-  "runtime~main.js": "/neighbourhood-map/static/js/runtime~main.b4f46611.js",
-  "runtime~main.js.map": "/neighbourhood-map/static/js/runtime~main.b4f46611.js.map",
-  "static/media/menu.svg": "/neighbourhood-map/static/media/menu.1181d8d6.svg",
-  "static/css/main.c9d2a9af.chunk.css.map": "/neighbourhood-map/static/css/main.c9d2a9af.chunk.css.map",
-  "index.html": "/neighbourhood-map/index.html",
-  "precache-manifest.bcb88a131b97f6c413363426d32b91d7.js": "/neighbourhood-map/precache-manifest.bcb88a131b97f6c413363426d32b91d7.js",
-  "service-worker.js": "/neighbourhood-map/service-worker.js"
+  "files": {
+    "main.css": "/neighbourhood-map/static/css/main.dd73e26f.chunk.css",
+    "main.js": "/neighbourhood-map/static/js/main.86ca6815.chunk.js",
+    "main.js.map": "/neighbourhood-map/static/js/main.86ca6815.chunk.js.map",
+    "runtime~main.js": "/neighbourhood-map/static/js/runtime~main.9d43d7df.js",
+    "runtime~main.js.map": "/neighbourhood-map/static/js/runtime~main.9d43d7df.js.map",
+    "static/js/2.95e240fb.chunk.js": "/neighbourhood-map/static/js/2.95e240fb.chunk.js",
+    "static/js/2.95e240fb.chunk.js.map": "/neighbourhood-map/static/js/2.95e240fb.chunk.js.map",
+    "index.html": "/neighbourhood-map/index.html",
+    "precache-manifest.2ceaed241623bdae0cafa123b12557bd.js": "/neighbourhood-map/precache-manifest.2ceaed241623bdae0cafa123b12557bd.js",
+    "service-worker.js": "/neighbourhood-map/service-worker.js",
+    "static/css/main.dd73e26f.chunk.css.map": "/neighbourhood-map/static/css/main.dd73e26f.chunk.css.map",
+    "static/media/menu.svg": "/neighbourhood-map/static/media/menu.1181d8d6.svg"
+  }
 }
